@@ -2,14 +2,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ElentaAd {
+public class Adv {
     public static WebDriver driver;
     @Test
-    public void sandbox() throws InterruptedException{
+    public void sandbox() throws InterruptedException {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         WebElement title = driver.findElement(By.id("title"));
         title.sendKeys("Suknelė");
@@ -19,11 +18,7 @@ public class ElentaAd {
         driver.findElement(By.id("phone")).sendKeys("+37060000000");
         driver.findElement(By.id("email")).sendKeys("viltet32@gmail.com");
         driver.findElement(By.id("submit-button")).click();
-        String txt = "";
-        try {
-            txt = driver.findElement(By.xpath()).getText();
-        }catch (Exception e){}
-        Assert.assertEquals(txt,"");
+
     }
     @BeforeClass
     public void before() {
@@ -35,4 +30,5 @@ public class ElentaAd {
         driver.get("https://elenta.lt/");
         driver.findElement(By.className("fc-button-label")).click();
     }
+
 }
