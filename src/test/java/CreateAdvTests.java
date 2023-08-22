@@ -46,14 +46,15 @@ public class CreateAdvTests {
         driver.findElement(By.id("submit-button")).click();
         String txt = "";
         try {
-            txt =  driver.findElement(By.xpath("//*[@id=\"te\"]")).getText();
+            txt = driver.findElement(By.xpath("//*[@id=\"te\"]")).getText();
 //            System.out.println(txt);
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
         Assert.assertEquals(txt, "Įveskite skelbimo pavadinimą");
     }
 
     @Test
-    public void createAdvWithoutTextTest() {
+    public void createAdvWithoutDescriptionTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("Suknelė");
         driver.findElement(By.id("text")).sendKeys("");
@@ -113,7 +114,7 @@ public class CreateAdvTests {
     }
 
     @Test
-    public void createAdvWithWrongEmailTest() {
+    public void createAdvWithoutEmailServerTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("Suknelė");
         driver.findElement(By.id("text")).sendKeys("Parduodama labai geros būklės šokių suknelė. Dydis 116. Tinka šokių varžyboms.");
@@ -160,6 +161,7 @@ public class CreateAdvTests {
         acceptCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
     public void acceptCookies() {
         driver.get("https://elenta.lt/");
         driver.findElement(By.className("fc-button-label")).click();
