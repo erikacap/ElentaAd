@@ -34,7 +34,7 @@ public class CreateAdvTests {
     }
 
     @Test
-    public void createAdvWithoutTitle() {
+    public void createAdvWithoutTitleTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("");
         driver.findElement(By.id("text")).sendKeys("Parduodama labai geros būklės šokių suknelė. Dydis 116. Tinka šokių varžyboms.");
@@ -53,7 +53,7 @@ public class CreateAdvTests {
     }
 
     @Test
-    public void createAdvWithoutText() {
+    public void createAdvWithoutTextTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("Suknelė");
         driver.findElement(By.id("text")).sendKeys("");
@@ -73,7 +73,7 @@ public class CreateAdvTests {
     }
 
     @Test
-    public void createAdvWithoutPhoneNo() {
+    public void createAdvWithoutPhoneNoTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("Suknelė");
         driver.findElement(By.id("text")).sendKeys("Parduodama labai geros būklės šokių suknelė. Dydis 116. Tinka šokių varžyboms.");
@@ -93,7 +93,7 @@ public class CreateAdvTests {
     }
 
     @Test
-    public void createAdvWithShortPhoneNo() {
+    public void createAdvWithShortPhoneNoTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("Suknelė");
         driver.findElement(By.id("text")).sendKeys("Parduodama labai geros būklės šokių suknelė. Dydis 116. Tinka šokių varžyboms.");
@@ -113,7 +113,7 @@ public class CreateAdvTests {
     }
 
     @Test
-    public void createAdvWithWrongEmail() {
+    public void createAdvWithWrongEmailTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("Suknelė");
         driver.findElement(By.id("text")).sendKeys("Parduodama labai geros būklės šokių suknelė. Dydis 116. Tinka šokių varžyboms.");
@@ -133,7 +133,7 @@ public class CreateAdvTests {
     }
 
     @Test
-    public void createAdvWithMaxLengthEmail() {
+    public void createAdvWithMaxLengthEmailTest() {
         driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=BuitisLaisvalaikis_DrabuziaiAvalyne&actionId=Siulo&returnurl=%2F");
         driver.findElement(By.id("title")).sendKeys("Suknelė");
         driver.findElement(By.id("text")).sendKeys("Parduodama labai geros būklės šokių suknelė. Dydis 116. Tinka šokių varžyboms.");
