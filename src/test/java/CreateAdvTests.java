@@ -4,9 +4,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
 public class CreateAdvTests {
@@ -24,13 +24,17 @@ public class CreateAdvTests {
         driver.findElement(By.id("email")).sendKeys("viltet32@gmail.com");
         wait.until(ExpectedConditions.elementToBeClickable(By.id("submit-button")));
         driver.findElement(By.id("submit-button")).click();
+        driver.findElement(By.id("inputfile")).sendKeys("C:\\Users\\erika\\IdeaProjects\\ElentaAd\\src\\main\\resources\\sukneleskelbimui.jpg");
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"forward-button\"]")));
+        driver.findElement(By.xpath("//*[@id=\"forward-button\"]")).click();
+        driver.findElement(By.id("forward-button")).click();
+        driver.findElement(By.xpath("//*[@id=\"promotead-form\"]/table/tbody/tr[12]/td[2]/a")).click();
         String txt = "";
         try {
-            txt = driver.findElement(By.xpath("//*[@id=\"fileinput-label\"]")).getText();
-            System.out.println(txt);
+            txt = driver.findElement(By.xpath("//*[@id=\"main-container\"]/h4")).getText();
         } catch (Exception e) {
         }
-        Assert.assertEquals(txt, "įkelkite nuotraukas");
+        Assert.assertEquals(txt, "SKELBIMAS AKTYVUS");
     }
 
     @Test
@@ -47,7 +51,6 @@ public class CreateAdvTests {
         String txt = "";
         try {
             txt = driver.findElement(By.xpath("//*[@id=\"te\"]")).getText();
-//            System.out.println(txt);
         } catch (Exception e) {
         }
         Assert.assertEquals(txt, "Įveskite skelbimo pavadinimą");
@@ -67,7 +70,6 @@ public class CreateAdvTests {
         String txt = "";
         try {
             txt = driver.findElement(By.xpath("//*[@id=\"txte\"]")).getText();
-//            System.out.println(txt);
         } catch (Exception e) {
         }
         Assert.assertEquals(txt, "Įveskite skelbimo aprašymą");
@@ -87,7 +89,6 @@ public class CreateAdvTests {
         String txt = "";
         try {
             txt = driver.findElement(By.xpath("//*[@id=\"ce\"]")).getText();
-//            System.out.println(txt);
         } catch (Exception e) {
         }
         Assert.assertEquals(txt, "Įveskite telefono numerį");
@@ -107,7 +108,6 @@ public class CreateAdvTests {
         String txt = "";
         try {
             txt = driver.findElement(By.xpath("//*[@id=\"pe\"]")).getText();
-//            System.out.println(txt);
         } catch (Exception e) {
         }
         Assert.assertEquals(txt, "Blogas tel. numeris");
@@ -127,7 +127,6 @@ public class CreateAdvTests {
         String txt = "";
         try {
             txt = driver.findElement(By.xpath("//*[@id=\"ee\"]")).getText();
-//            System.out.println(txt);
         } catch (Exception e) {
         }
         Assert.assertEquals(txt, "Blogas el. pašto adresas");
@@ -147,7 +146,6 @@ public class CreateAdvTests {
         String txt = "";
         try {
             txt = driver.findElement(By.xpath("//*[@id=\"ee\"]")).getText();
-            System.out.println(txt);
         } catch (Exception e) {
         }
         Assert.assertEquals(txt, "Blogas el. pašto adresas");
@@ -167,4 +165,8 @@ public class CreateAdvTests {
         driver.findElement(By.className("fc-button-label")).click();
     }
 
+    @AfterClass
+    public void after() {
+        driver.quit();
+    }
 }
